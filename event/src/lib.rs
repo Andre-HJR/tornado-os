@@ -6,7 +6,7 @@
 //! ```
 //! ```
 #![no_std]
-#![feature(llvm_asm)]
+// #![feature(llvm_asm)]
 
 mod log;
 mod sbi;

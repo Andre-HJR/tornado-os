@@ -1,12 +1,15 @@
 #![no_std]
-#![feature(llvm_asm)]
-#![feature(asm)]
+// #![feature(llvm_asm)]
+// #![feature(asm)]
 #![feature(panic_info_message)]
 #![feature(linkage)]
 #![feature(alloc_error_handler)]
 #![feature(maybe_uninit_uninit_array)]
 #![deny(warnings)]
 
+#![feature(const_maybe_uninit_uninit_array)]
+
+use core::arch::asm;
 extern crate alloc;
 
 #[macro_use]

@@ -6,6 +6,7 @@
 //! ```
 //! ```
 #![no_std]
+// event/src/lib.rs-COMMENT: 2022-11-04 Fri Andre :] remove the llvm_asm feature.
 // #![feature(llvm_asm)]
 
 mod log;

@@ -5,6 +5,7 @@ mod port;
 #[macro_use]
 extern crate clap;
 
+// xtask/src/main.rs-COMMENT: 2022-11-04 Fri Andre :] change riscv64imac-unknown-none-elf -> riscv64gc-unknown-none-elf
 const DEFAULT_TARGET: &'static str = "riscv64gc-unknown-none-elf";
 const DD: &'static str = "dd";
 const KERNEL_OFFSET: u64 = 0x2_0000;

@@ -1,7 +1,8 @@
 // ref: https://github.com/rcore-os/rCore-Tutorial-v3/blob/main/os/src/drivers/block/sdcard.rs
 // 感谢 @wyfcyx
 #![no_std]
-#![feature(llvm_asm)]
+// 2022-11-04 Andre Remove the llvm_asm feature
+// #![feature(llvm_asm)]
 #![allow(non_snake_case)]
 #![allow(non_camel_case_types)]
 #![allow(unused)]
@@ -25,6 +26,8 @@ use k210_soc::{
 };
 use lazy_static::*;
 use spin::Mutex;
+// 2022-11-04 Andre add the core::arch::asm
+use core::arch::asm;
 
 pub struct SDCard<SPI> {
     spi: Arc<Mutex<SPI>>,

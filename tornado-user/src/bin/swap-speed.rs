@@ -1,13 +1,21 @@
 #![no_std]
 #![no_main]
-#![feature(asm)]
-#![feature(llvm_asm)]
+// tornado-user/src/bin/swap-speed.rs-COMMENT: 2022-11-04 Fri Andre :] remove the asm feature
+// #![feature(asm)]
+// tornado-user/src/bin/swap-speed.rs-COMMENT: 2022-11-04 Fri Andre :] remove the llvm_asm feature
+// #![feature(llvm_asm)]
 #![feature(test)]
+
+// tornado-user/src/bin/swap-speed.rs-COMMENT: 2022-11-04 Fri Andre :] add the bench_black_box feature
+#![feature(bench_black_box)]
 
 extern crate alloc;
 #[macro_use]
 extern crate tornado_user;
 use tornado_user::{read_timer, reset_timer};
+
+// tornado-user/src/bin/swap-speed.rs-COMMENT: 2022-11-04 Fri Andre :] import asm macro
+use core::arch::asm;
 
 // 异步main函数，由entry调用execute_async_main
 #[no_mangle]

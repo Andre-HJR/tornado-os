@@ -236,6 +236,7 @@ pub fn switch_to_user(context: &SwapContext, user_satp: usize, user_asid: usize)
     KernelHartInfo::set_prev_asid(user_asid);
 
     unsafe {
+        // TODO: tornado-kernel/src/trap/switch.rs-COMMENT: 2022-11-04 Fri Andre :]  Need to fix this problem
         llvm_asm!("fence.i" :::: "volatile");
         llvm_asm!("jr $0" :: "r"(jmp_va), "{a0}"(swap_contex_va(user_asid)), "{a1}"(user_satp) :: "volatile");
     }

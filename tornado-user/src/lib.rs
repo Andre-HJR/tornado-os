@@ -1,5 +1,7 @@
 #![no_std]
+// tornado-user/src/lib.rs-COMMENT: 2022-11-04 Fri Andre :] remove the llvm_asm feature
 // #![feature(llvm_asm)]
+// tornado-user/src/lib.rs-COMMENT: 2022-11-04 Fri Andre :] remove the asm feature
 // #![feature(asm)]
 #![feature(panic_info_message)]
 #![feature(linkage)]
@@ -7,8 +9,10 @@
 #![feature(maybe_uninit_uninit_array)]
 #![deny(warnings)]
 
+// tornado-user/src/lib.rs-COMMENT: 2022-11-04 Fri Andre :] add the no init array
 #![feature(const_maybe_uninit_uninit_array)]
 
+// tornado-user/src/lib.rs-COMMENT: 2022-11-04 Fri Andre :] import the asm macro
 use core::arch::asm;
 extern crate alloc;
 

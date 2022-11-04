@@ -11,10 +11,14 @@
 #![no_main]
 #![feature(panic_info_message)]
 #![feature(alloc_error_handler)]
-#![feature(llvm_asm)]
-#![feature(asm)]
+// shared-scheduler/src/main.rs-COMMENT: 2022-11-04 Fri Andre :] remove the llvm_asm feature
+// #![feature(llvm_asm)]
+// shared-scheduler/src/main.rs-COMMENT: 2022-11-04 Fri Andre :] remove the asm feature
+// #![feature(asm)]
 #![feature(maybe_uninit_uninit_array)]
 #![feature(naked_functions)]
+// shared-scheduler/src/main.rs-COMMENT: 2022-11-04 Fri Andre :] add the asm macro
+use core::arch::asm;
 
 extern crate alloc;
 

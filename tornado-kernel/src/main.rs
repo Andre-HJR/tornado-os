@@ -23,6 +23,9 @@
 #[macro_use]
 extern crate alloc;
 
+// tornado-kernel/src/main.rs-COMMENT: 2022-11-04 Fri Andre :] import asm macro
+use core::arch::asm;
+
 #[macro_use]
 mod console;
 mod algorithm;

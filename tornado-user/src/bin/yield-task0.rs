@@ -1,12 +1,17 @@
 //! 任务切换演示程序0
 #![no_std]
 #![no_main]
-#![feature(asm)]
-#![feature(llvm_asm)]
+// tornado-user/src/bin/yield-task0.rs-COMMENT: 2022-11-04 Fri Andre :] remove the asm feature
+// #![feature(asm)]
+// tornado-user/src/bin/yield-task0.rs-COMMENT: 2022-11-04 Fri Andre :] remove the llvm_asm feature
+// #![feature(llvm_asm)]
 
 extern crate alloc;
 #[macro_use]
 extern crate tornado_user;
+
+// tornado-user/src/bin/yield-task0.rs-COMMENT: 2022-11-04 Fri Andre :] import asm macro
+use core::arch::asm;
 
 use tornado_user::{do_yield, execute_async};
 async fn async_main() {

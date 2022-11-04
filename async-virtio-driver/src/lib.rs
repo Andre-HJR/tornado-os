@@ -1,6 +1,7 @@
 //! 异步 virtio 前端驱动
 #![no_std]
-#![feature(llvm_asm)]
+// async-virtio-driver/src/lib.rs-COMMENT: 2022-11-04 Fri Andre :] remote the llvm_asm feature
+// #![feature(llvm_asm)]
 
 pub mod block;
 mod config;

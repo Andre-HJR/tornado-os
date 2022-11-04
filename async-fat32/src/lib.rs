@@ -19,7 +19,8 @@
 //! todo!()
 //! ```
 #![no_std]
-#![feature(llvm_asm)]
+// async-fat32/src/lib.rs-COMMENT: 2022-11-04 Fri Andre :] remove the llvm_asm feature.
+// #![feature(llvm_asm)]
 mod block_cache;
 mod bs_bpb;
 mod cache;

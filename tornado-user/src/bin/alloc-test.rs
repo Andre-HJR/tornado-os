@@ -1,12 +1,17 @@
 #![no_std]
 #![no_main]
-#![feature(asm)]
-#![feature(llvm_asm)]
+// tornado-user/src/bin/alloc-test.rs-COMMENT: 2022-11-04 Fri Andre :] remote the asm feature features
+// #![feature(asm)]
+// tornado-user/src/bin/alloc-test.rs-COMMENT: 2022-11-04 Fri Andre :] remote the llvm_asm feature features
+// #![feature(llvm_asm)]
 
 extern crate alloc;
 #[macro_use]
 extern crate tornado_user;
 use alloc::vec;
+
+// tornado-user/src/bin/alloc-test.rs-COMMENT: 2022-11-04 Fri Andre :] import asm macro
+use core::arch::asm;
 
 // 同步函数的例子，没有调用execute_async_main
 #[no_mangle]

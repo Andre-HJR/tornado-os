@@ -5,6 +5,9 @@ use crate::{
 };
 use alloc::{boxed::Box, collections::LinkedList, sync::Arc};
 
+// tornado-kernel/src/hart.rs-COMMENT: 2022-11-04 Fri Andre :] import asm macro
+use core::arch::asm;
+
 /// 写一个指针到上下文指针
 #[inline]
 pub unsafe fn write_tp(tp: usize) {

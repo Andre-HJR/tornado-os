@@ -5,7 +5,7 @@ mod port;
 #[macro_use]
 extern crate clap;
 
-const DEFAULT_TARGET: &'static str = "riscv64imac-unknown-none-elf";
+const DEFAULT_TARGET: &'static str = "riscv64gc-unknown-none-elf";
 const DD: &'static str = "dd";
 const KERNEL_OFFSET: u64 = 0x2_0000;
 const SCHEDULER_OFFSET: u64 = 0x40_0000;

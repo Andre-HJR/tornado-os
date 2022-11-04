@@ -15,9 +15,9 @@ bitflags = "1.2"
 bit_field = "0.10"
 hashbrown = "0.9"
 r0 = "1.0"
-async-trait = { git = "https://github.com.cnpmjs.org/HUST-OS/async-trait.git", rev = "c612a647aa" }
-riscv = { git = "https://github.com.cnpmjs.org/HUST-OS/riscv.git"}
-plic = { git = "https://github.com.cnpmjs.org/HUST-OS/plic.git", branch = "main" }
+async-trait = { git = "https://github.com/HUST-OS/async-trait.git", rev = "c612a647aa" }
+riscv = { git = "https://github.com/HUST-OS/riscv.git"}
+plic = { git = "https://github.com/rustsbi/plic.git", branch = "main"}
 async-virtio-driver = { path = "../async-virtio-driver" }
 event = { path = "../event", features = ["kernel"] }
 async-mutex = { path = "../async-mutex", features = ["kernel"] }

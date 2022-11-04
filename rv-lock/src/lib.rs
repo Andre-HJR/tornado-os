@@ -1,8 +1,8 @@
 #![no_std]
-#![feature(llvm_asm)]
+// #![feature(llvm_asm)]
 // #![feature(asm)]
 
-// use core::arch::asm;
+use core::arch::asm;
 use spin::{Mutex, MutexGuard};
 /// 关闭中断的互斥锁
 #[derive(Default)]
@@ -24,10 +24,10 @@ impl<T> Lock<T> {
 
     /// 获得上锁的对象
     pub fn lock(&self) -> LockGuard<'_, T> {
-        let sstatus: usize;
+        let sstatus: usize = 0usize;
         unsafe {
-            llvm_asm!("csrrci $0, sstatus, 1 << 1" : "=r"(sstatus) ::: "volatile");
-            // asm!("csrrci $0, sstatus, 1 << 1" : "=r"(sstatus) ::: "volatile");
+            // llvm_asm!("csrrci $0, sstatus, 1 << 1" : "=r"(sstatus) ::: "volatile");
+            core::arch::asm!("csrrci {0}, sstatus, 1 << 1",  in(reg) (sstatus));
         }
         LockGuard {
             guard: Some(self.0.lock()),
@@ -40,8 +40,8 @@ impl<T> Lock<T> {
 impl<'a, T> Drop for LockGuard<'a, T> {
     fn drop(&mut self) {
         self.guard.take();
-        unsafe { llvm_asm!("csrs sstatus, $0" :: "r"(self.sstatus & 2) :: "volatile") };
-        // unsafe { asm!("csrs sstatus, $0" :: "r"(self.sstatus & 2) :: "volatile") };
+        // unsafe { llvm_asm!("csrs sstatus, $0" :: "r"(self.sstatus & 2) :: "volatile") };
+        unsafe { core::arch::asm!("csrs sstatus, {0}",  lateout(reg) self.sstatus) };
     }
 }
 

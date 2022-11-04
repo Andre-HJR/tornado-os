@@ -1,3 +1,4 @@
 /target
 fs.img
 Cargo.lock
+.vscode

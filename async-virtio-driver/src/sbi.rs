@@ -16,7 +16,7 @@
 /// ```
 #[inline(always)]
 fn sbi_call(which: usize, arg0: usize, arg1: usize, arg2: usize) -> usize {
-    let mut ret = 0usize;
+    let mut ret;
     unsafe {
         core::arch::asm!(
             "li x16, 0",

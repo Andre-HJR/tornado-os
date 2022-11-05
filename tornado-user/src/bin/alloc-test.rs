@@ -10,8 +10,7 @@ extern crate alloc;
 extern crate tornado_user;
 use alloc::vec;
 
-// tornado-user/src/bin/alloc-test.rs-COMMENT: 2022-11-04 Fri Andre :] import asm macro
-use core::arch::asm;
+// tornado-user/src/bin/alloc-test.rs-COMMENT: 2022-11-04 Fri Andre :] import asm macro, remove
 
 // 同步函数的例子，没有调用execute_async_main
 #[no_mangle]

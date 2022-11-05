@@ -12,8 +12,7 @@ use core::future::Future;
 use core::pin::Pin;
 use core::task::{Context, Poll};
 
-// tornado-user/src/bin/user_task.rs-COMMENT: 2022-11-04 Fri Andre :] import asm macro
-use core::arch::asm;
+// tornado-user/src/bin/user_task.rs-COMMENT: 2022-11-04 Fri Andre :] import asm macro, remove
 
 async fn async_main() -> i32 {
     // todo: 唤醒逻辑

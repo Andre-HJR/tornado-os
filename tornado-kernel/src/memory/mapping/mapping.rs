@@ -219,7 +219,7 @@ impl Mapping {
             #[cfg(feature = "k210")]
             satp::set(Mode::Sv39, 0, self.root_ppn.into());
             // 刷新页表。rs1=x0、rs2=asid，说明刷新与这个地址空间有关的所有地址
-            asm!("sfence.vma x0, {asid}", asid = in(reg) asid);
+            core::arch::asm!("sfence.vma x0, {asid}", asid = in(reg) asid);
         }
     }
 

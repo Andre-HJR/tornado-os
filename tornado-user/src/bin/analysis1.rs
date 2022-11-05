@@ -10,8 +10,7 @@ extern crate alloc;
 #[macro_use]
 extern crate tornado_user;
 
-// tornado-user/src/bin/analysis1.rs-COMMENT: 2022-11-04 Fri Andre :] import the asm macro
-use core::arch::asm;
+// tornado-user/src/bin/analysis1.rs-COMMENT: 2022-11-04 Fri Andre :] import the asm macro, remove
 
 use tornado_user::{do_yield, execute_async_analysis, read_timer, reset_timer, spawn};
 async fn analysis_task(_n: usize) {}

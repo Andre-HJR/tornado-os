@@ -8,7 +8,9 @@
 
 use crate::{
     hart::KernelHartInfo,
+    // tornado-kernel/src/trap/switch.rs-COMMENT: 2022-11-05 Sat Andre :] remove the unused_imports
     memory::{swap_contex_va, SWAP_FRAME_VA},
+    // memory::{SWAP_FRAME_VA},
 };
 /// 内核态和用户态切换时需要保存的上下文
 #[repr(C)]
@@ -77,7 +79,7 @@ impl SwapContext {
 #[link_section = ".swap"]
 #[export_name = "_user_to_supervisor"]
 pub unsafe extern "C" fn user_to_supervisor() -> ! {
-    asm!(
+    core::arch::asm!(
         // 交换 a0 和 sscratch（原先保存着交换栈的栈顶指针）
         "csrrw  a0, sscratch, a0",
         //开始保存 SwapContext
@@ -145,7 +147,7 @@ pub unsafe extern "C" fn user_to_supervisor() -> ! {
 #[link_section = ".swap"]
 #[export_name = "_supervisor_to_user"]
 pub unsafe extern "C" fn supervisor_to_user() -> ! {
-    asm!(
+    core::arch::asm!(
         "csrw   satp, a1
     sfence.vma", // 刷新页表
         // 从 SwapContext 中恢复用户的上下文
@@ -237,8 +239,13 @@ pub fn switch_to_user(context: &SwapContext, user_satp: usize, user_asid: usize)
 
     unsafe {
         // TODO: tornado-kernel/src/trap/switch.rs-COMMENT: 2022-11-04 Fri Andre :]  Need to fix this problem
-        llvm_asm!("fence.i" :::: "volatile");
-        llvm_asm!("jr $0" :: "r"(jmp_va), "{a0}"(swap_contex_va(user_asid)), "{a1}"(user_satp) :: "volatile");
+        // tornado-kernel/src/trap/switch.rs-COMMENT: 2022-11-05 Sat Andre :] fix the fence
+        // llvm_asm!("fence.i" :::: "volatile");
+        core::arch::asm!("fence.i");
+        // tornado-kernel/src/trap/switch.rs-COMMENT: 2022-11-05 Sat Andre :] There is still problem
+        // llvm_asm!("jr $0" :: "r"(jmp_va), "{a0}"(swap_contex_va(user_asid)), "{a1}"(user_satp) :: "volatile");
+        // core::arch::asm!("jr {0}" , in(jmp_va), a0 = (swap_contex_va(user_asid)), a1 = (user_satp) );
+        core::arch::asm!("jr {0}", in(reg) jmp_va, in("a0") swap_contex_va(user_asid), in("a1") user_satp);
     }
     unreachable!()
 }

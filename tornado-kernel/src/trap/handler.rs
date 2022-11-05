@@ -1,3 +1,4 @@
+
 use super::timer;
 use crate::{
     plic,
@@ -174,7 +175,7 @@ impl TrapFrame {
 #[naked]
 #[link_section = ".text"]
 pub unsafe extern "C" fn trap_vector() {
-    asm!("
+    core::arch::asm!("
 	.option push 
 	.option norvc
 	j	{trap_exception}
@@ -207,7 +208,7 @@ pub unsafe extern "C" fn trap_vector() {
 #[link_section = ".text"]
 pub unsafe extern "C" fn interrupt_reserved() -> ! {
     // 死循环
-    asm!("1: j 1b", options(noreturn))
+    core::arch::asm!("1: j 1b", options(noreturn))
 }
 
 /// 初始化中断
@@ -222,7 +223,7 @@ pub fn init() {
 #[naked]
 #[link_section = ".text"]
 pub unsafe extern "C" fn supervisor_timer() {
-    asm!(
+    core::arch::asm!(
         define_load_store!(),
         save_non_switch!(),
         "mv     a0, sp",
@@ -253,7 +254,7 @@ pub fn supervisor_software() {
 #[naked]
 #[link_section = ".text"]
 pub unsafe extern "C" fn supervisor_external() {
-    asm!(
+    core::arch::asm!(
         save_non_switch!(),
         "mv     a0, sp",
         "call   {supervisor_external}",
@@ -292,7 +293,7 @@ pub unsafe extern "C" fn rust_supervisor_external(trap_frame: &mut TrapFrame) ->
 #[naked]
 #[link_section = ".text"]
 pub unsafe extern "C" fn trap_exception() {
-    asm!(
+    core::arch::asm!(
         save_switch!(),
         "mv     a0, sp",
         "call   {trap_exception}",

@@ -281,7 +281,7 @@ extern "C" fn should_switch(asid: AddressSpaceId) -> bool {
 fn read_pc() -> usize {
     let pc: usize;
     unsafe {
-        asm!("auipc {}, 0", out(reg) pc, options(nomem, nostack));
+        core::arch::asm!("auipc {}, 0", out(reg) pc, options(nomem, nostack));
     }
     pc
 }

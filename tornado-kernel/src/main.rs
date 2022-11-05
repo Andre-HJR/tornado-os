@@ -11,14 +11,21 @@
 //! “像风一样快”，因此取名**飓风内核**--**tornado-os**。
 #![no_std]
 #![no_main]
-#![feature(global_asm, llvm_asm, asm, alloc_error_handler)]
+// tornado-kernel/src/main.rs-COMMENT: 2022-11-05 Sat Andre :] remote global_asm llvm_asm and asm features
+// #![feature(global_asm, llvm_asm, asm, alloc_error_handler)]
+
+#![feature(alloc_error_handler)]
 #![feature(drain_filter)]
 #![feature(maybe_uninit_uninit_array)]
 #![feature(naked_functions)]
-#![feature(maybe_uninit_ref)]
+// tornado-kernel/src/main.rs-COMMENT: 2022-11-05 Sat Andre :] remote maybe_uninit_ref
+// #![feature(maybe_uninit_ref)]
 #![feature(linked_list_remove)]
 #![feature(core_intrinsics)]
 #![deny(warnings)]
+// tornado-kernel/src/main.rs-COMMENT: 2022-11-05 Sat Andre :] asm_sym and asm_const added
+#![feature(asm_sym)]
+#![feature(asm_const)]
 
 #[macro_use]
 extern crate alloc;
@@ -44,8 +51,9 @@ mod trap;
 mod user;
 mod virtio;
 
+// tornado-kernel/src/main.rs-COMMENT: 2022-11-05 Sat Andre :] change the global_asm
 #[cfg(not(test))]
-global_asm!(include_str!("entry.asm"));
+core::arch::global_asm!(include_str!("entry.asm"));
 
 /// qemu平台下共享调度器的基地址
 #[cfg(feature = "qemu")]

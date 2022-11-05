@@ -10,8 +10,7 @@ extern crate alloc;
 #[macro_use]
 extern crate tornado_user;
 
-// tornado-user/src/bin/channel.rs-COMMENT: 2022-11-04 Fri Andre :] import asm macro
-use core::arch::asm;
+// tornado-user/src/bin/channel.rs-COMMENT: 2022-11-04 Fri Andre :] import asm macro, remove
 
 use alloc::sync::Arc;
 

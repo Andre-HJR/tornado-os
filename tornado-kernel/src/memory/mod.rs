@@ -33,7 +33,7 @@ pub fn max_asid() -> AddressSpaceId {
     #[cfg(target_pointer_width = "32")]
     let mut val: usize = ((1 << 9) - 1) << 22;
     unsafe {
-        asm!("
+        core::arch::asm!("
         csrr    {tmp}, satp
         or      {val}, {tmp}, {val}
         csrw    satp, {val}

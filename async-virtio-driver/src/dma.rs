@@ -16,13 +16,14 @@ pub struct DMA {
     pages: usize,
 }
 
-/// 这些函数在操作系统内核里面定义
+// async-virtio-driver/src/dma.rs-COMMENT: 2022-11-05 Sat Andre :] fix the comment, change the doc_comment to line comment
+// 这些函数在操作系统内核里面定义
 extern "C" {
-    /// 申请分配一定页数的连续的内存，返回起始物理地址
+    // 申请分配一定页数的连续的内存，返回起始物理地址
     fn virtio_dma_alloc(pages: usize) -> PhysicalAddress;
-    /// 回收一定页数的内存
+    // 回收一定页数的内存
     fn virtio_dma_dealloc(paddr: PhysicalAddress, pages: usize) -> i32;
-    /// 内核提供的物理地址到虚拟地址的转换函数
+    // 内核提供的物理地址到虚拟地址的转换函数
     fn virtio_phys_to_virt(paddr: PhysicalAddress) -> VirtualAddress;
 }
 

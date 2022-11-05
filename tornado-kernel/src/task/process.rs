@@ -10,11 +10,11 @@ use spin::Mutex;
 #[derive(Debug)]
 pub struct Process {
     /// 进程的编号
-    id: ProcessId,
+    pub id: ProcessId,
     /// 进程是否属于用户态进程
-    is_user: bool,
+    pub is_user: bool,
     /// 可变部分
-    inner: Mutex<ProcessInner>,
+    pub inner: Mutex<ProcessInner>,
 }
 
 /// 进程所有信息的可变部分

@@ -6,6 +6,7 @@ mod port;
 extern crate clap;
 
 // xtask/src/main.rs-COMMENT: 2022-11-04 Fri Andre :] change riscv64imac-unknown-none-elf -> riscv64gc-unknown-none-elf
+// xtask/src/main.rs-COMMENT: 2022-11-06 Sun Andre :] change the riscv64gc-unknown-none-elf -> riscv64gc-unknown-linux-gnu: error
 const DEFAULT_TARGET: &'static str = "riscv64gc-unknown-none-elf";
 const DD: &'static str = "dd";
 const KERNEL_OFFSET: u64 = 0x2_0000;

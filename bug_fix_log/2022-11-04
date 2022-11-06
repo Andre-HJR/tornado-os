@@ -4,3 +4,16 @@ date                                 name                                       
 ---------------------------------------------------------------------------------------------------------
 2022-11-5                           Andre                                           try to fix the qemu. details in comment. rust-lld, Error.
 ---------------------------------------------------------------------------------------------------------
+2022-11-6                           Andre                                           \ 
+Question - 1
+    Describle
+        rust-lld: error: /home/ubuntu/Downloads/tornado-os/target/riscv64gc-unknown-none-elf/debug/deps/libriscv-57f4b3da4e21f9af.rlib(riscv.o): 
+        cannot link object files with different floating-point ABI
+    Reason:
+        https://github.com/rust-lang/rust/issues/83229
+    Solution:
+        - :X: change the HUST-OS/riscv -> rust-embedded/riscv
+        - :X: change the HUST-OS/riscv -> rcore-os/riscv
+        - :X: change riscv64gc-unknown-none-elf -> riscv32gc-unknown-none-elf
+        - :X: change riscv64gc-unknown-none-elf -> riscv64gc-unknown-linux-gnu
+---------------------------------------------------------------------------------------------------------

@@ -9,7 +9,9 @@ edition = "2018"
 [dependencies]
 spin = "0.7"
 ## tornado-kernel/Cargo.toml-COMMENT: 2022-11-04 Fri Andre :] remove the .cnpmjs.org, use the github.
-riscv = { git = "https://github.com/rust-embedded/riscv.git", rev = "7e9d2e5b", features = ["inline-asm"] }
+## tornado-kernel/Cargo.toml-COMMENT: 2022-11-04 Fri Andre :] use the HUST-OS.
+## riscv = { git = "https://github.com/rust-embedded/riscv.git", rev = "7e9d2e5b", features = ["inline-asm"] }
+riscv = { git = "https://github.com/HUST-OS/riscv.git"}
 lazy_static = { version = "1", features = ["spin_no_std"] }
 r0 = "1.0"
 buddy_system_allocator = "0.6"

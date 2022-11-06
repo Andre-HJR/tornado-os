@@ -18,7 +18,9 @@ r0 = "1.0"
 ## tornado-kernel/Cargo.toml-COMMENT: 2022-11-04 Fri Andre :] remove the .cnpmjs.org, use the github.
 async-trait = { git = "https://github.com/HUST-OS/async-trait.git", rev = "c612a647aa" }
 ## tornado-kernel/Cargo.toml-COMMENT: 2022-11-04 Fri Andre :] remove the .cnpmjs.org, use the github.
-riscv = { git = "https://github.com/HUST-OS/riscv.git"}
+## tornado-kernel/Cargo.toml-COMMENT: 2022-11-06 Sun Andre :] change the riscv repo
+## riscv = { git = "https://github.com/HUST-OS/riscv.git"}
+riscv = { git = "https://github.com/rcore-os/riscv", features = ["inline-asm"] }
 ## tornado-kernel/Cargo.toml-COMMENT: 2022-11-04 Fri Andre :] remove the .cnpmjs.org, use the github. the HUST-OS -> rustsbi
 plic = { git = "https://github.com/rustsbi/plic.git", branch = "main"}
 async-virtio-driver = { path = "../async-virtio-driver" }

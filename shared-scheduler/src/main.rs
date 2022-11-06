@@ -17,8 +17,9 @@
 // #![feature(asm)]
 #![feature(maybe_uninit_uninit_array)]
 #![feature(naked_functions)]
-// shared-scheduler/src/main.rs-COMMENT: 2022-11-04 Fri Andre :] add the asm macro
-use core::arch::asm;
+// shared-scheduler/src/main.rs-COMMENT: 2022-11-04 Fri Andre :] add the asm macro, remove
+// shared-scheduler/src/main.rs-COMMENT: 2022-11-06 Sun Andre :] add the const_maybe_uninit_uninit_array
+#![feature(const_maybe_uninit_uninit_array)]
 
 extern crate alloc;
 

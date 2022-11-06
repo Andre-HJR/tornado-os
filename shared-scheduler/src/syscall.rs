@@ -39,7 +39,8 @@ fn syscall_3(module: usize, func: usize, args: [usize; 3]) -> SyscallResult {
         () => {
             let (code, extra);
             unsafe {
-                asm!(
+                // shared-scheduler/src/syscall.rs-COMMENT: 2022-11-06 Sun Andre :] identify the core::arch::asm
+                core::arch::asm!(
                     "ecall",
                     in("a0") args[0], in("a1") args[1], in("a2") args[2],
                     in("a6") func, in("a7") module,
@@ -62,7 +63,8 @@ fn syscall_6(module: usize, func: usize, args: [usize; 6]) -> SyscallResult {
         () => {
             let (code, extra);
             unsafe {
-                asm!(
+                // shared-scheduler/src/syscall.rs-COMMENT: 2022-11-06 Sun Andre :] identify the core::arch::asm
+                core::arch::asm!(
                     "ecall",
                     in("a0") args[0], in("a1") args[1], in("a2") args[2],
                     in("a3") args[3], in("a4") args[4], in("a5") args[5],

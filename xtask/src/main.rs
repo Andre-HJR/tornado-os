@@ -230,7 +230,7 @@ impl<'x> Xtask<'x, String> {
             root,
             target: DEFAULT_TARGET,
             cargo,
-            qemu: "qemu-system-riscv64".to_string(),
+            qemu: "/home/ubuntu/Downloads/tornado-os/qemu/qemu-system-riscv64".to_string(),
             gdb: "riscv64-unknown-elf-gdb".to_string(), // todo: 检查系统中 riscv gdb 的位置
             objcopy,
             objdump,
@@ -254,7 +254,7 @@ impl<'x> Xtask<'x, String> {
             root,
             target: DEFAULT_TARGET,
             cargo,
-            qemu: "qemu-system-riscv64".to_string(),
+            qemu: "/home/ubuntu/Downloads/tornado-os/qemu/qemu-system-riscv64".to_string(),
             gdb: "riscv64-unknown-elf-gdb".to_string(), // todo: 检查系统中 riscv gdb 的位置
             objcopy,
             objdump,

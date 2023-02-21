@@ -287,14 +287,15 @@ pub extern "C" fn rust_main(hart_id: usize) -> ! {
     );
     unsafe {
         // 任务切换演示
-        shared_payload.add_task(hart_id, address_space_id, task_6.task_repr());
-        shared_payload.add_task(hart_id, address_space_id, task_7.task_repr());
+        // shared_payload.add_task(hart_id, address_space_id, task_4.task_repr());
+        // shared_payload.add_task(hart_id, address_space_id, task_6.task_repr());
+        // shared_payload.add_task(hart_id, address_space_id, task_7.task_repr());
 
         // 异步IO系统调用演示
         // shared_payload.add_task(hart_id, address_space_id, task_8.task_repr());
 
         // 任务间通信演示
-        // shared_payload.add_task(hart_id, address_space_id, task_9.task_repr());
+        shared_payload.add_task(hart_id, address_space_id, task_9.task_repr());
 
         // 飓风内核自身对照实验
         // shared_payload.add_task(hart_id, address_space_id, task_10.task_repr());
